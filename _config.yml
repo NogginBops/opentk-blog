@@ -22,8 +22,9 @@ title: OpenTK blog
 email: julius_hager@hotmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   A blog about using OpenTK and hopefully mildly interesting development notes from the development of OpenTK.
+domain: nogginbops.github.io
+url: "https://nogginbops.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "noggin_bops.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  opentk
 
