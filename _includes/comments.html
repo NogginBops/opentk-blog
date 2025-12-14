@@ -20,7 +20,7 @@
         }
     }
 
-    $.ajax("https://api.github.com/repos/izuzak/izuzak.github.com/issues/{{page.commentIssueId}}/comments", {
+    $.ajax("https://api.github.com/repos/NogginBops/opentk-blog/issues/{{page.commentIssueId}}/comments", {
         headers: {Accept: "application/vnd.github.full+json"},
         success: function(msg){
         loadComments(msg);
