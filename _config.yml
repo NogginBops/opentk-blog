@@ -43,6 +43,7 @@ minima:
       - title: OpenTK github
         icon: github
         url: "https://github.com/opentk"
+  show_excerpts: true
 
 # Do supress sass deprecation warnings
 # - Noggin_bops 2025-12-14
