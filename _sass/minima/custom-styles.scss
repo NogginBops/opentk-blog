@@ -1,3 +1,13 @@
 
 @import "comments.scss";
 @import "header.scss";
+
+/* Fixes issue where markdown code tags (`code`) gets the wrong
+font-size when in a post title.
+We use 87.5% to match the ratio of the normal text size to code text size
+that minima uses by default (16px -> 14px) and assume this will work for larger font sizes.
+- Noggin-bops 2025-12-15
+*/
+code.highlighter-rouge {
+    font-size: 87.5% !important;
+}
