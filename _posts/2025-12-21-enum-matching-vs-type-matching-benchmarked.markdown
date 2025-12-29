@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "Enum Matching vs. Type Matching: Benchmarked"
-date: 2025-12-21 22:40:00 +0300
-categories: support-tips
+date: 2025-12-29 18:10:00 +0300
+categories: development
 tags: benchmark performance enums types matching switch case comparison
 author: themixedupstuff
-commentIssueId: TODO
+commentIssueId: 9
 excerpt: |
     In this post we explore the different approaches to process events from a
     mailbox with a more traditional enum based approach as well as a newer
