@@ -33,4 +33,4 @@ This table breaks down the behaviour of `OPENTK4_USE_WAYLAND` for different Open
 | `>= 4.9.1` | X11 or Wayland depending on platform | X11 always | X11 or Wayland depending on platform                           |
 |---------------------------------------------------------------------------------------------------------------------------------|
 
-In the [next post]({% link _posts/2025-12-16-the-glfw-error-callback.markdown %}) we will look at the GLFW error callback, how OpenTKs default error callback has changed through the versions and why you might want to install your own error callback.
+In the [next post]({% post_url 2025-12-16-the-glfw-error-callback %}) we will look at the GLFW error callback, how OpenTKs default error callback has changed through the versions and why you might want to install your own error callback.

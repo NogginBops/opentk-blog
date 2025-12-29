@@ -48,4 +48,4 @@ private static void MyErrorCallback(ErrorCode errorCode, string description)
 GLFWProvider.SetErrorCallback(MyErrorCallback);
 {% endhighlight %}
 
-There is also a more complicated reason to set your own callback related to p/invoke and exceptions, but that is the topic of the [next post]({% link _posts/2025-12-17-exceptions-and-pinvoke.markdown %}) so it will have to wait.
+There is also a more complicated reason to set your own callback related to p/invoke and exceptions, but that is the topic of the [next post]({% post_url 2025-12-17-exceptions-and-pinvoke %}) so it will have to wait.

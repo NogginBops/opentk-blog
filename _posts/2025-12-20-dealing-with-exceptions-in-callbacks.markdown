@@ -7,7 +7,7 @@ tags: glfw pinvoke
 author: noggin_bops
 commentIssueId: 6
 ---
-In the [last post]({% link _posts/2025-12-17-exceptions-and-pinvoke.markdown %}) we left off saying that OpenTK does deal with re-throwing exceptions to some degree. In this post we will explore what this means.
+In the [last post]({% post_url 2025-12-17-exceptions-and-pinvoke %}) we left off saying that OpenTK does deal with re-throwing exceptions to some degree. In this post we will explore what this means.
 
 In the last post we concluded that throwing exceptions in callbacks called from native code is a Bad Idea™ and that code should make sure to make this not occur. I also suggested that any exception thrown in the callback could be captured and then later rethrow the exception when you've returned from the native code.
 
@@ -32,7 +32,7 @@ The thing that makes this feasible for the `NativeWindow` events but not for the
 
 There is a complication however. Because GLFW is not able to receive any of the exception  information from OpenTK or C# GLFW will have no idea that an exception has been thrown and will continue event processing as normal, potentially calling other callbacks before finally returning back to the C# code that started the event processing, and only then will the exception be called. This makes this a very complicated scenario to deal with properly as some callbacks might be called in a "broken" state.
 
-So what should you do? The simple solution is to simply avoid uncaught exceptions in callback functions entirely. That way you avoid all of these subtleties.
+So, what should you do? The simple solution is to simply avoid uncaught exceptions in callback functions entirely. That way you avoid all of these subtleties.
 
 
 

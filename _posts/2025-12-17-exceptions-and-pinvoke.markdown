@@ -8,7 +8,7 @@ author: noggin_bops
 commentIssueId: 5
 ---
 
-In the [last post]({% link _posts/2025-12-16-the-glfw-error-callback.markdown %}) we discussed the GLFW error callback and I alluded to a more complicated reason to add your own error callback. And that reason is how P/Invoke deals with exceptions.
+In the [last post]({% post_url 2025-12-16-the-glfw-error-callback %}) we discussed the GLFW error callback and I alluded to a more complicated reason to add your own error callback. And that reason is how P/Invoke deals with exceptions.
 
 P/Invoke is used to call native functions from C#, which is a great thing to be able to do. This is how OpenTK is able to use GLFW or use any other native dependency. Here is an example of how it's [used in OpenTK](https://github.com/opentk/opentk/blob/eab65e5c34abec4673b4672256e0e6c86018e3ad/src/OpenTK.Windowing.GraphicsLibraryFramework/GLFWNative.cs#L180-L181) to call GLFW functions:
 {% highlight cs %}
