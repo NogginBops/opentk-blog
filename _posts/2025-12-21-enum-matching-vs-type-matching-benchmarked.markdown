@@ -163,7 +163,7 @@ With our test case, we have chosen to use 16 unique events with approximately
 32 million instances. However, feel free to extend our example to more event
 types and share the results with us on your own time.
 
-I strongly suggest you visit the source code at
++The source used for the benchmarks can be found here:
 <https://github.com/utkumaden/OpenTK.EventDeliveryTest>.
 
 ## Testing and Results
