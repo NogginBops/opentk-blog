@@ -40,9 +40,12 @@ minima:
   date_format: "%Y-%m-%d"
   show_excerpts: false
   social_links:
-      - title: OpenTK github
+      - title: OpenTK GitHub
         icon: github
         url: "https://github.com/opentk"
+      - title: OpenTK Discord
+        icon: discord
+        url: https://discord.gg/6HqD48s
   show_excerpts: true
 
 # Do supress sass deprecation warnings
