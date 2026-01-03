@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Enum Matching vs. Type Matching: Benchmarked"
-date: 2026-01-01 22:10:00 +0300
+date: 2026-01-03 21:50:00 +0300
 categories: development
 tags: benchmark performance enums types matching switch case comparison
 author: themixedupstuff
@@ -55,8 +55,9 @@ void OnEventRaised(PalHandle? handle, PlatformEventType type, EventArgs args)
 Although window events should ideally never be a bottleneck in regular
 applications, this did raise a question of whichever approach is the fastest. I
 feel like the results will intrigue you as much as it did me. Whilst the
-findings aren't significant enough to affect our final decision, it might be
-important for someone else in another field or in another application.
+findings might not affect our final decision, it might be important for
+something else in another field or in another application where  performance is
+a priority.
 
 ## The Premise
 Imagine a scenario where you are receiving a significant number of events into
@@ -66,8 +67,8 @@ amount of variance between the time it takes each event be processed. Each event
 has something to identify its type, and must be processed by different code
 paths.
 
-For our premise, I will assume that each unique branch actually takes the same
-amount of time to process. This keeps the benchmark code cleaner overall.
+For our premise, I will make each unique branch actually do the same work This
+keeps the benchmark code cleaner and is one less variable to account for.
 
 ### Different Approaches
 
@@ -207,8 +208,8 @@ it is not always possible or beneficial to make types sealed, especially in a
 toolkit like OpenTK. It might be valuable to have a platform specific event
 structure which may have details specific to each driver.
 
-Although the non-sealed type matching syntax is significantly slower, matching
-on types is significantly more advantageous to the human writing the code. If you
+Although the non-sealed type matching syntax is somewhat slower, matching on
+types is significantly more advantageous to the human writing the code. If you
 can guarantee that the types will be sealed, there is no need to mess around
 with writing an enum as it has very diminishing returns for applications without
 significant performance considerations.
@@ -224,11 +225,11 @@ it. It only has a limited view into your code to inspect and a list of
 optimizations it can do safely when certain conditions are satisfied.
 
 A very close runner up, the type itself happens to be the second best option.
-Assuming the implementation of the type matching logic uses hash codes or a type
-id, each type is assigned a unique one. These hash codes, being integers, are
-incredibly fast to compare. If the type being matched is sealed, the code only
-has to compare one hash code. Otherwise, it will have to find all decendent
-types and compare their hash codes as well.
+The current runtime implementation assigns each type a unqique type ID, which
+is used to match types. The type IDs, being integers, are incredibly fast to
+compare. If the type being matched is sealed, the code only has to compare the
+ID of the type itself as it cannot have any inheritors. Otherwise, it will have
+to find all decendent types and compare their hash codes as well.
 
 ### Performance for .NET 8.0 and likely older versions.
 When I started writing this blogpost, I tested in .NET 8.0. The .NET team works
@@ -258,9 +259,9 @@ necessary to improve the performance of a bottleneck.
 
 It is also important to highlight how little the performance of the event
 matching matters in the use case of OpenTK. In the constraint of a 16ms frame
-time budget (for 60fps), you can handle millions of events, meanwhile
-realistically you will recieve less 20 to 30 events at most under most
-circumstances. This experiement was more to satisfy my curiousity and i find
+time budget (for 60fps), you can handle hundreds of thousands of events,
+meanwhile realistically you will recieve less 20 to 30 events at most under most
+circumstances. This experiement was more to satisfy my curiousity and I find
 the results surprisingly close between some test cases.
 
 I highly suggest reading the source code, as well as the assembly output of the
