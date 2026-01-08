@@ -5,6 +5,8 @@ $otk-color: #0052cc;
 $lm-header-background-color:              $otk-color;
 $lm-header-text-color:                  #f0f0f0;
 
+$lm-toc-background-color:               #f8f8ff;
+
 $lm-comment-text-color:                 #303030;
 $lm-comment-user-name-color:            #000000;
 $lm-comment-border-color:               #cacaca;
@@ -14,6 +16,8 @@ $lm-comment-header-background:            linear-gradient(to bottom, #f0f0f0, $l
 
 $dm-header-background-color:              $otk-color;
 $dm-header-text-color:                  #D3D3D3;
+
+$dm-toc-background-color:               #18181d;
 
 $dm-comment-text-color:                 #B4B4B4;
 $dm-comment-user-name-color:            #f0f0f0;
@@ -31,6 +35,8 @@ $dm-comment-header-background:          #0052cc1a;
 $header-background-color: #{$lm-header-background-color};
 $header-text-color: #{$lm-header-text-color};
 
+$toc-background-color: #{$lm-toc-background-color};
+
 $comment-text-color: #{$lm-comment-text-color};
 $comment-user-name-color: #{$lm-comment-user-name-color};
 $comment-border-color: #{$lm-comment-border-color};
@@ -44,6 +50,8 @@ $comment-header-background: #{$lm-comment-header-gradient-color};
         --otkblog-header-background-color: #{$lm-header-background-color};
         --otkblog-header-text-color: #{$lm-header-text-color};
 
+        --otkblog-toc-background-color: #{$lm-toc-background-color};
+
         --otkblog-comment-text-color: #{$lm-comment-text-color};
         --otkblog-comment-user-name-color: #{$lm-comment-user-name-color};
         --otkblog-comment-border-color: #{$lm-comment-border-color};
@@ -56,6 +64,8 @@ $comment-header-background: #{$lm-comment-header-gradient-color};
             --otkblog-header-background-color: #{$dm-header-background-color};
             --otkblog-header-text-color: #{$dm-header-text-color};
 
+            --otkblog-toc-background-color: #{$dm-toc-background-color};
+
             --otkblog-comment-text-color: #{$dm-comment-text-color};
             --otkblog-comment-user-name-color: #{$dm-comment-user-name-color};
             --otkblog-comment-border-color: #{$dm-comment-border-color};
@@ -67,6 +77,8 @@ $comment-header-background: #{$lm-comment-header-gradient-color};
     $header-background-color: var(--otkblog-header-background-color);
     $header-text-color: var(--otkblog-header-text-color);
 
+    $toc-background-color: var(--otkblog-toc-background-color);
+
     $comment-text-color: var(--otkblog-comment-text-color);
     $comment-user-name-color: var(--otkblog-comment-user-name-color);
     $comment-border-color: var(--otkblog-comment-border-color);
@@ -77,6 +89,8 @@ $comment-header-background: #{$lm-comment-header-gradient-color};
 
     $header-background-color: #{$dm-header-background-color};
     $header-text-color: #{$dm-header-text-color};
+
+    $toc-background-color: #{$dm-toc-background-color};
 
     $comment-text-color: #{$dm-comment-text-color};
     $comment-user-name-color: #{$dm-comment-user-name-color};
