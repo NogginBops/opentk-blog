@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "The OpenTK matrix guide"
-date: 2026-02-04 15:00:00 +0100
+date: 2026-02-17 12:00:00 +0100
 categories: support-tips
 tags: matrix glsl math
 author: noggin_bops
-commentIssueId: 11
+commentIssueId: 12
 excerpt: The ultimate guide to matrix majorness and multiplication conventions, and how to use matrices in OpenTK.
 ---
 
