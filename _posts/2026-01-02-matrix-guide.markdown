@@ -11,17 +11,17 @@ excerpt: The ultimate guide to matrix majorness and multiplication conventions, 
 
 TL;DR: [How to get consistency when using OpenTK](#how-to-get-consistency-when-using-opentk)
 
-There is a lot of confusion about matrices in OpenTK and how they relate to glsl. In this post I aim to clear up this confusion and show that it isn't as complex as many believe.
+There is a lot of confusion about matrices in OpenTK and how they relate to GLSL. In this post I aim to clear up this confusion and show that it isn't as complex as many believe.
 
-Matrices have two distinct properties: *element order* and *multiplication convention* which are often conflatex but have surprisingly little in common.
+Matrices have two distinct properties: *element order* and *multiplication convention* which are often conflated but have surprisingly little in common.
 
 1. Do not remove this line (it will not be displayed)
 {:toc}
 
 ## Matrix element order
 
-A matrix is a 2D grid of numbers which doesn't have a "obvious" way of being stored in memory, which is linear.
-There are many ways to make a 1D array of a 2D grid, but for matrices there are two popular ways to store matrices; *row-major* order and *column-major* order.
+A matrix is a 2D grid of numbers which doesn't have an "obvious" way of being stored in memory, which is linear.
+There are many ways to make a 1D array of a 2D grid, but for matrices there are two popular ways; *row-major* order and *column-major* order.
 
 *Row-major* order stores the rows of the matrix one after the other, like this:
 
@@ -75,7 +75,7 @@ Knowing the *majorness* of a matrix is important when sending matrices between l
 
 This is especially important when communicating between programming languages where the compiler is unable to do type-checking between programming languages.
 Imagine receiving a `float[16]` representing a matrix, there is nothing to tell us which matrix position each element has, we have to decide on what matrix order we will use and stick to that.
-If someone else uses a different matrix order we need to convert our representation into their matrix order before passing the matrix to them.
+If someone else uses a different matrix order we need to convert our representation into their matrix order before passing the array to them.
 
 What happens if we read a *row-major* order matrix as if it was a *column-major* order? 
 In other words, what if we send a matrix that is in *column-major* order to a function that will read the matrix in *row-major* order?
@@ -103,7 +103,7 @@ As we can see, this results in a vector that has been translated by the values i
     {% include post-2026-01-02/row-multiplication.svg %}
 </div>
 
-These two alternatives produce identical results but the matrices are not equal. So to know how to multiply our vectors with matrices we need to know if we are supposed to multiply our vector from the right or from the left. In math notation it's very explicit if a vector is multiplied as a column or row vector, but in code libraries often make all vectors the same type. 
+These two alternatives produce identical results but the matrices are not equal. So to know how to multiply our vectors with matrices we need to know if we are supposed to multiply our vector from the right or from the left. In math notation it's very explicit if a vector is multiplied as a column or row vector, but in programming languages libraries often make all vectors the same type and you don't see the column or row shape of the vector written out as you would in math notation.
 As an example, in OpenTK if we have a `Vector4 v` variable, OpenTK will allow both `v * M` (multiplying from the left as a row vector) and `M * v` (multiplying from the right as a column vector) which can be confusing.
 
 An important matrix multiplication fact is that `vM = Mᵀvᵀ`, that is if a matrix expects a row vector from the left we can transpose the matrix and multiply with the column vector from the right. In code this would look something like this:
@@ -217,7 +217,7 @@ Personally I prefer the [SSBO approach](#glsl-ubossbo) for instancing as it's ea
 ### GLSL TBN matrix for normal mapping
 
 When implementing normal mapping it's typical to construct a Tangent Bitangent Normal (TBN) matrix.
-Matrix constructors in GLSL is the only part of GLSL that is not *multiplication convention* agnostic.
+Matrix constructors in GLSL are the only part of GLSL that is not *multiplication convention* agnostic.
 Matrix multiplication comes from where matrix elements are placed, and matrix constructors in GLSL take column vectors as input to construct the matrix.
 So using the matrix constructor to make the TBN matrix like this, `mat3(fTangent, fBitangent, fNormal)`, will create a matrix with right-to-left multiplication convention.
 The easy solution is to just transpose the constructed matrix `transpose(mat3(fTangent, fBitangent, fNormal))` which restores the left-to-right multiplication convention.
